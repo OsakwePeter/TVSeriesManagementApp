@@ -10,22 +10,60 @@ package com.mycompany.tvseriesmanagementapp;
  */
 
 public class SeriesModel {
-    public String SeriesId;
-    public String SeriesName;
-    public int SeriesAgeRestriction;
-    public int SeriesNumberOfEpisodes;
+    private String seriesId;
+    private String seriesName;
+    private int seriesAgeRestriction;
+    private int seriesNumberOfEpisodes;
 
+    // Constructor
     public SeriesModel(String id, String name, int ageRestriction, int episodes) {
-        this.SeriesId = id;
-        this.SeriesName = name;
-        this.SeriesAgeRestriction = ageRestriction;
-        this.SeriesNumberOfEpisodes = episodes;
+        this.seriesId = id;
+        this.seriesName = name;
+        this.seriesAgeRestriction = ageRestriction;
+        this.seriesNumberOfEpisodes = episodes;
     }
 
+    // Getters
+    public String getSeriesId() {
+        return seriesId;
+    }
+
+    public String getSeriesName() {
+        return seriesName;
+    }
+
+    public int getSeriesAgeRestriction() {
+        return seriesAgeRestriction;
+    }
+
+    public int getSeriesNumberOfEpisodes() {
+        return seriesNumberOfEpisodes;
+    }
+
+    // Setters
+    public void setSeriesId(String seriesId) {
+        this.seriesId = seriesId;
+    }
+
+    public void setSeriesName(String seriesName) {
+        this.seriesName = seriesName;
+    }
+
+    public void setSeriesAgeRestriction(int seriesAgeRestriction) {
+        this.seriesAgeRestriction = seriesAgeRestriction;
+    }
+
+    public void setSeriesNumberOfEpisodes(int seriesNumberOfEpisodes) {
+        this.seriesNumberOfEpisodes = seriesNumberOfEpisodes;
+    }
+
+    // toString
+    @Override
     public String toString() {
-        return "SERIES ID: " + SeriesId + "\nSERIES NAME: " + SeriesName +
-                "\nSERIES AGE RESTRICTION: " + SeriesAgeRestriction +
-                "\nSERIES NUMBER OF EPISODES: " + SeriesNumberOfEpisodes + "\n";
+        return "SERIES ID: " + seriesId +
+               "\nSERIES NAME: " + seriesName +
+               "\nSERIES AGE RESTRICTION: " + seriesAgeRestriction +
+               "\nSERIES NUMBER OF EPISODES: " + seriesNumberOfEpisodes + "\n";
     }
 }
 

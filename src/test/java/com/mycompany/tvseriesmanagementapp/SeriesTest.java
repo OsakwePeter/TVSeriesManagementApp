@@ -30,7 +30,7 @@ public class SeriesTest {
     public void TestSearchSeries1() {
         SeriesModel result = seriesManager.testSearchSeries("101");
         assertNotNull(result);
-        assertEquals("Extreme Sports", result.SeriesName);
+        assertEquals("Extreme Sports", result.getSeriesName());  // ✅ use getter
     }
 
     @Test
@@ -44,7 +44,9 @@ public class SeriesTest {
         boolean updated = seriesManager.testUpdateSeries("101", "X Sports", 15, 12);
         assertTrue(updated);
         SeriesModel updatedSeries = seriesManager.testSearchSeries("101");
-        assertEquals("X Sports", updatedSeries.SeriesName);
+        assertEquals("X Sports", updatedSeries.getSeriesName());  // ✅ use getter
+        assertEquals(15, updatedSeries.getSeriesAgeRestriction());
+        assertEquals(12, updatedSeries.getSeriesNumberOfEpisodes());
     }
 
     @Test
