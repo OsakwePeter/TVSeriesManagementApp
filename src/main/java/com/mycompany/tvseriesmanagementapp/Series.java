@@ -17,6 +17,17 @@ public class Series {
     private ArrayList<SeriesModel> seriesList = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
 
+    // Helper method to return to menu or exit
+    private void returnToMenu() {
+        System.out.println("Enter (1) to launch menu or any other key to exit");
+        String choice = scanner.nextLine();
+        if (choice.equals("1")) {
+            TVSeriesManagementApp.main(null); // Relaunch main menu
+        } else {
+            ExitSeriesApplication();
+        }
+    }
+
     public void CaptureSeries() {
         System.out.println("Enter the series id:");
         String id = scanner.nextLine();
@@ -49,6 +60,7 @@ public class Series {
 
         seriesList.add(new SeriesModel(id, name, ageRestriction, episodes));
         System.out.println("Series recorded successfully!\n");
+        returnToMenu();
     }
 
     public void ViewAllSeries() {
@@ -59,18 +71,32 @@ public class Series {
                 System.out.println(series);
             }
         }
+        returnToMenu();
     }
 
     public void SearchSeries() {
         System.out.println("Enter the series ID to search:");
         String id = scanner.nextLine();
+        boolean found = false;
+
         for (SeriesModel series : seriesList) {
             if (series.getSeriesId().equals(id)) {
-                System.out.println(series);
-                return;
+                System.out.println("-------------------------------------");
+                System.out.println("SERIES ID: " + series.getSeriesId());
+                System.out.println("SERIES NAME: " + series.getSeriesName());
+                System.out.println("SERIES AGE RESTRICTION: " + series.getSeriesAgeRestriction());
+                System.out.println("SERIES NUMBER OF EPISODES: " + series.getSeriesNumberOfEpisodes());
+                System.out.println("-------------------------------------");
+                found = true;
+                break;
             }
         }
-        System.out.println("Series with Series ID " + id + " was not found\n");
+
+        if (!found) {
+            System.out.println("Series with Series ID " + id + " was not found\n");
+        }
+
+        returnToMenu();
     }
 
     public void UpdateSeries() {
@@ -88,10 +114,12 @@ public class Series {
                 series.setSeriesNumberOfEpisodes(Integer.parseInt(scanner.nextLine()));
 
                 System.out.println("Series updated successfully!\n");
+                returnToMenu();
                 return;
             }
         }
         System.out.println("Series with Series ID " + id + " was not found\n");
+        returnToMenu();
     }
 
     public void DeleteSeries() {
@@ -108,10 +136,12 @@ public class Series {
                 } else {
                     System.out.println("Deletion cancelled\n");
                 }
+                returnToMenu();
                 return;
             }
         }
         System.out.println("Series with Series ID " + id + " was not found\n");
+        returnToMenu();
     }
 
     public void SeriesReport() {
@@ -123,28 +153,13 @@ public class Series {
                 System.out.println(series);
             }
         }
+        returnToMenu();
     }
 
     public void ExitSeriesApplication() {
         System.out.println("Exiting application. Goodbye!");
         System.exit(0);
     }
-    
-   public void SortSeriesByEpisodes() {
-    seriesList.sort((s1, s2) -> Integer.compare(s1.getSeriesNumberOfEpisodes(), s2.getSeriesNumberOfEpisodes()));
-    System.out.println("Series sorted by number of episodes:\n");
-    ViewAllSeries();
-}
-
-public void FilterSeriesByAgeRestriction(int age) {
-    System.out.println("Series allowed for age " + age + "+:\n");
-    for (SeriesModel s : seriesList) {
-        if (s.getSeriesAgeRestriction() <= age) {
-            System.out.println(s);
-        }
-    }
-}
-
 
     // === TEST METHODS ===
 
