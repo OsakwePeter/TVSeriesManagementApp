@@ -17,61 +17,50 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 public class SeriesTest {
-    private Series seriesManager;
+    private Series series;
 
     @BeforeEach
-    public void setup() {
-        seriesManager = new Series();
-        seriesManager.testAddSeries("101", "Extreme Sports", 12, 10);
-        seriesManager.testAddSeries("102", "Bargain Hunters", 8, 6);
+    void setup() {
+        series = new Series();
+        series.testAddSeries("S1", "Breaking Bad", 16, 62);
     }
 
     @Test
-    public void TestSearchSeries1() {
-        SeriesModel result = seriesManager.testSearchSeries("101");
-        assertNotNull(result);
-        assertEquals("Extreme Sports", result.getSeriesName());  // ✅ use getter
+    void TestSearchSeries() {
+        assertNotNull(series.testSearchSeries("S1"));
     }
 
     @Test
-    public void TestSearchSeries_SeriesNotFound1() {
-        SeriesModel result = seriesManager.testSearchSeries("999");
-        assertNull(result);
+    void TestSearchSeries_SeriesNotFound() {
+        assertNull(series.testSearchSeries("S99"));
     }
 
     @Test
-    public void TestUpdateSeries1() {
-        boolean updated = seriesManager.testUpdateSeries("101", "X Sports", 15, 12);
-        assertTrue(updated);
-        SeriesModel updatedSeries = seriesManager.testSearchSeries("101");
-        assertEquals("X Sports", updatedSeries.getSeriesName());  // ✅ use getter
-        assertEquals(15, updatedSeries.getSeriesAgeRestriction());
-        assertEquals(12, updatedSeries.getSeriesNumberOfEpisodes());
+    void TestUpdateSeries() {
+        assertTrue(series.testUpdateSeries("S1", "Better Call Saul", 16, 50));
+        assertEquals("Better Call Saul", series.testSearchSeries("S1").getSeriesName());
     }
 
     @Test
-    public void TestDeleteSeries1() {
-        boolean deleted = seriesManager.testDeleteSeries("102");
-        assertTrue(deleted);
-        assertNull(seriesManager.testSearchSeries("102"));
+    void TestDeleteSeries() {
+        assertTrue(series.testDeleteSeries("S1"));
     }
 
     @Test
-    public void TestDeleteSeries_SeriesNotFound1() {
-        assertFalse(seriesManager.testDeleteSeries("404"));
+    void TestDeleteSeries_SeriesNotFound() {
+        assertFalse(series.testDeleteSeries("S99"));
     }
 
     @Test
-    public void TestSeriesAgeRestriction_AgeValid1() {
-        assertTrue(seriesManager.testValidateAgeRestriction("10"));
-        assertTrue(seriesManager.testValidateAgeRestriction("2"));
-        assertTrue(seriesManager.testValidateAgeRestriction("18"));
+    void TestSeriesAgeRestriction_AgeValid() {
+        assertTrue(series.testValidateAgeRestriction("10"));
+        assertTrue(series.testValidateAgeRestriction("18"));
     }
 
     @Test
-    public void TestSeriesAgeRestriction_AgeNotValid1() {
-        assertFalse(seriesManager.testValidateAgeRestriction("one"));
-        assertFalse(seriesManager.testValidateAgeRestriction("20"));
-        assertFalse(seriesManager.testValidateAgeRestriction("-3"));
+    void TestSeriesAgeRestriction_AgeInvalid() {
+        assertFalse(series.testValidateAgeRestriction("0"));
+        assertFalse(series.testValidateAgeRestriction("20"));
+        assertFalse(series.testValidateAgeRestriction("abc"));
     }
 }

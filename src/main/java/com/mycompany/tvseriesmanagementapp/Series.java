@@ -129,6 +129,22 @@ public class Series {
         System.out.println("Exiting application. Goodbye!");
         System.exit(0);
     }
+    
+   public void SortSeriesByEpisodes() {
+    seriesList.sort((s1, s2) -> Integer.compare(s1.getSeriesNumberOfEpisodes(), s2.getSeriesNumberOfEpisodes()));
+    System.out.println("Series sorted by number of episodes:\n");
+    ViewAllSeries();
+}
+
+public void FilterSeriesByAgeRestriction(int age) {
+    System.out.println("Series allowed for age " + age + "+:\n");
+    for (SeriesModel s : seriesList) {
+        if (s.getSeriesAgeRestriction() <= age) {
+            System.out.println(s);
+        }
+    }
+}
+
 
     // === TEST METHODS ===
 
