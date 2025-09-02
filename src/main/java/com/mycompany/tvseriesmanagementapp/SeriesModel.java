@@ -8,7 +8,6 @@ package com.mycompany.tvseriesmanagementapp;
  *
  * @author payaf
  */
-
 public class SeriesModel {
     private String seriesId;
     private String seriesName;
@@ -24,37 +23,37 @@ public class SeriesModel {
     }
 
     // Getters
-    public String getSeriesId() {
-        return seriesId;
+    public String getSeriesId() { 
+    return seriesId; 
     }
-
-    public String getSeriesName() {
-        return seriesName;
+    
+    public String getSeriesName() { 
+    return seriesName; 
     }
-
-    public int getSeriesAgeRestriction() {
-        return seriesAgeRestriction;
+    
+    public int getSeriesAgeRestriction() { 
+    return seriesAgeRestriction; 
     }
-
-    public int getSeriesNumberOfEpisodes() {
-        return seriesNumberOfEpisodes;
+    
+    public int getSeriesNumberOfEpisodes() { 
+    return seriesNumberOfEpisodes; 
     }
 
     // Setters
-    public void setSeriesId(String seriesId) {
-        this.seriesId = seriesId;
+    public void setSeriesId(String seriesId) { 
+    this.seriesId = seriesId; 
     }
-
-    public void setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
+    
+    public void setSeriesName(String seriesName) { 
+    this.seriesName = seriesName; 
     }
-
-    public void setSeriesAgeRestriction(int seriesAgeRestriction) {
-        this.seriesAgeRestriction = seriesAgeRestriction;
+    
+    public void setSeriesAgeRestriction(int seriesAgeRestriction) { 
+    this.seriesAgeRestriction = seriesAgeRestriction; 
     }
-
-    public void setSeriesNumberOfEpisodes(int seriesNumberOfEpisodes) {
-        this.seriesNumberOfEpisodes = seriesNumberOfEpisodes;
+    
+    public void setSeriesNumberOfEpisodes(int seriesNumberOfEpisodes) { 
+    this.seriesNumberOfEpisodes = seriesNumberOfEpisodes; 
     }
 
     // toString
@@ -63,7 +62,6 @@ public class SeriesModel {
         return "SERIES ID: " + seriesId +
                "\nSERIES NAME: " + seriesName +
                "\nSERIES AGE RESTRICTION: " + seriesAgeRestriction +
-               "\nSERIES NUMBER OF EPISODES: " + seriesNumberOfEpisodes + "\n";
+               "\nSERIES NUMBER OF EPISODES: " + seriesNumberOfEpisodes;
     }
 }
-

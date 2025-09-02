@@ -21,7 +21,6 @@ public class DocumentarySeries extends SeriesModel {
 
     @Override
     public String toString() {
-        return super.toString() + ", Topic: " + topic;
+        return super.toString() + "\nTopic: " + topic;
     }
 }
-

@@ -21,6 +21,6 @@ public class AnimatedSeries extends SeriesModel {
 
     @Override
     public String toString() {
-        return super.toString() + ", Studio: " + studio;
+        return super.toString() + "\nStudio: " + studio;
     }
 }

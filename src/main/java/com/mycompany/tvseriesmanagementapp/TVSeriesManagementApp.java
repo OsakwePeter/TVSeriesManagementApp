@@ -8,7 +8,6 @@ package com.mycompany.tvseriesmanagementapp;
  *
  * @author payaf
  */
-
 import java.util.Scanner;
 
 public class TVSeriesManagementApp {
@@ -41,11 +40,10 @@ public class TVSeriesManagementApp {
                     case "4": seriesManager.UpdateSeries(); break;
                     case "5": seriesManager.DeleteSeries(); break;
                     case "6": seriesManager.SeriesReport(); break;
-                    case "7": seriesManager.ExitSeriesApplication();
+                    case "7": seriesManager.ExitSeriesApplication(); break;
                     default: System.out.println("Invalid option\n"); break;
                 }
             }
         }
     }
 }
-
